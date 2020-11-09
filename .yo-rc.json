@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.6.0",
+    "libraryName": "image-mailto",
+    "libraryId": "9afe695a-18cb-4cc7-932f-519d3b98eb0f",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}

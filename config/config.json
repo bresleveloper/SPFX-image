@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "image-mailto-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/imageMailto/ImageMailtoWebPart.js",
+          "manifest": "./src/webparts/imageMailto/ImageMailtoWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ImageMailtoWebPartStrings": "lib/webparts/imageMailto/loc/{locale}.js"
+  }
+}
