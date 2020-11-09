@@ -10,13 +10,15 @@ import styles from './ImageMailtoWebPart.module.scss';
 import * as strings from 'ImageMailtoWebPartStrings';
 
 export interface IImageMailtoWebPartProps {
+  subject: string;
+  imageSrc: string;
   description: string;
 }
 
 export default class ImageMailtoWebPart extends BaseClientSideWebPart<IImageMailtoWebPartProps> {
 
   public render(): void {
-    this.domElement.innerHTML = `
+    /*this.domElement.innerHTML = `
       <div class="${ styles.imageMailto }">
         <div class="${ styles.container }">
           <div class="${ styles.row }">
@@ -30,7 +32,12 @@ export default class ImageMailtoWebPart extends BaseClientSideWebPart<IImageMail
             </div>
           </div>
         </div>
-      </div>`;
+      </div>`;*/
+    let mailBody = `Hello \n click on the link to see image \n ` + this.properties.imageSrc
+    this.domElement.innerHTML = ` 
+      <a href="mailto:?subject=${escape(this.properties.subject)}&body=${mailBody}">
+        <img src="${escape(this.properties.imageSrc)}">
+      </a>`;
   }
 
   protected get dataVersion(): Version {
@@ -50,7 +57,9 @@ export default class ImageMailtoWebPart extends BaseClientSideWebPart<IImageMail
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                })
+                }),
+                PropertyPaneTextField('subject',{ label: 'subject' }),
+                PropertyPaneTextField('imageSrc',{ label: 'imageSrc' }),
               ]
             }
           ]
